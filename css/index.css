@@ -1,37 +1,51 @@
-body {
-  background-color: #eee;
+* {
   box-sizing: border-box;
 }
 
-.container {
+body {
+  background-color: #eee;
+  font-size: 18px;
+}
+
+.main-wrapper {
+  margin: 0 auto;
+  background-color: #fff;
   max-width: 800px;
   min-width: 500px;
-  background-color: #fff;
 }
 
 .header {
-  margin: 0;
+  background-color: #fff;
+  border-bottom: 1px #999 solid;
   width: 100%;
   height: 50px;
-  border-bottom: 1px #999 solid;
+  text-align: center;
 }
 
 .content {
-  margin: 0 auto;
+  display: flex;
+  position: relative;
   width: 100%;
+  padding-bottom: 50px;
 }
 
 .main {
+  padding: 20px;
   display: inline-block;
-  width: calc(100% - 300px);
+  min-height: 100%;
+  margin: 0;
+  width: 100%;
 }
 
 .sidebar {
-  vertical-align: top;
+  padding: 20px;
+  min-height: 100%;
+  margin: 0;
   display: inline-block;
   width: 300px;
-  height: inherit;
   position: relative;
+  opacity: 1;
+  transition: opacity .25s ease-out;
 }
 
 .sidebar:before {
@@ -44,13 +58,63 @@ body {
   width: 15px;
 }
 
+.sidebar-content {
+
+}
+
 .footer {
-  background-color: inherit;
-  margin: 0 auto;
-  padding-left: 10px;
-  top: calc(100% - 50px);
+  background-color: #fff;
+  margin: 0;
+  bottom: 0;
   height: 50px;
-  width: 100%;
+  width: 800px;
   position: fixed;
   border-top: 1px #999 solid;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.wrapper {
+  background-color: #fc0;
+  opacity: .1;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  min-width: 500px;
+}
+
+.popup {
+  padding: 20px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 20;
+  border: 1px solid #999;
+}
+
+.button {
+  color: #fff;
+  background-color: #08f;
+  border: none;
+  padding: 10px 20px;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: #0af;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .25s linear;
+  }
 }
